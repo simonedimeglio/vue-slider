@@ -8,9 +8,74 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,200;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+    <header>
+        <h1>VISIT CALIFORNIA <i class="fas fa-flag-usa"></i></h1>
+    </header>
+
+    <div class="container main-container">
+
+        
+        <h3 class="title">Yosemite National Park</h3>
+        <div id="app">
+
+            <div class="picture-slaider container">
+    
+                <div class="row">
+    
+                    <div class="col-1 selector" @click="prev">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+    
+                    <div class="picture-container col-10">
+                        <img :src="photos[photoIndex]" alt="picture">
+                        <div class="slider-icons">
+    
+                            <!-- V-FOR per "conteggiare" le foto -->
+                            <i 
+                            v-for="(img, index) in photos"
+                            :class="currentPictureDot(index)" 
+                            class="fas fa-circle"
+                            @click="moveTo(index)"
+                            >
+                            </i>
+    
+                        </div>
+                    </div>
+    
+                    <div class="col-1 selector" @click="next">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+    
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <p class="description">Not just a <b>great valley</b>, but a shrine to human foresight, the strength of granite, the power of glaciers, the persistence of life, and the tranquility of the High Sierra. Yosemite National Park is an American national park in <b>Northern California</b>, surrounded on the southeast by Sierra National Forest and on the northwest by Stanislaus National Forest. The park is managed by the National Park Service and covers an area of <u>748,436 acres</u> and sits in four counties: centered in Tuolumne and Mariposa, extending north and east to Mono and south to Madera County. Designated a World Heritage Site in 1984, Yosemite is internationally recognized for its granite cliffs, waterfalls, clear streams, giant sequoia groves, lakes, mountains, meadows, glaciers, and biological diversity. <u>Almost 95% of the park is designated wilderness</u>. Yosemite is a glaciated landscape, and the scenery that resulted from the interaction of the glaciers and the underlying rocks was the basis for its <b>preservation</b> as a national park.</p>
+                    </div>
+                    <div class="col alert">
+                        <h5>ALERT - CURRENT CONDITIONS</h5>
+                        <h6><i class="fas fa-exclamation-circle"></i> Yosemite is open with some services limited due to <b>COVID-19 - Reservations required</b>;</h6>
+                        <p>Reservations are required to drive into Yosemite through September 30, 2021. Some services and facilities are limited, and shuttles are not operating.</p>
+                        <h6><i class="fas fa-exchange-alt"></i>Yosemite Valley roads circulation has temporarily changed</h6>
+                        <p>Circulation on Yosemite Valley Roads has temporarily changed as part of a pilot. Use caution and be sure to follow signs when driving in eastern Yosemite Valley. Do not rely on GPS for directions.</p>
+                        <h6><i class="fas fa-info-circle"></i> Expect traffic congestion in Yosemite, especially on weekends</h6>
+                        <p>While we welcome you to Yosemite, expect traffic congestion. Be prepared for delays of one to two hours at park entrances. Arrive before mid-morning, especially on weekends.</p>
+                    </div>
+                </div>
+    
+            </div>
+    
+        </div>
+
+    </div>
+    
     
     <script src="js/script.js"></script>
 </body>
